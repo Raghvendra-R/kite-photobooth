@@ -18,6 +18,7 @@ export const AppContextProvider=(props)=>{
 
      // Function t calculate average rating of course
 
+<<<<<<< HEAD
      const calculateRating=(course)=>{
         if(!course?.courseRating || course.courseRating.length === 0){
             return 0;
@@ -29,6 +30,22 @@ export const AppContextProvider=(props)=>{
         })
         return totalRating/course.courseRatings.length
      }
+=======
+     const calculateRating = (course) => {
+        if (!course?.courseRatings || course.courseRatings.length === 0) {
+            return 0;
+        }
+    
+        let totalRating = 0;
+    
+        course.courseRatings.forEach(rating => {
+            totalRating += rating.rating;
+        });
+    
+        return totalRating / course.courseRatings.length;
+    };
+    
+>>>>>>> c8b285366c3bee5ebe194fcf6bf3cc4a7ce6539c
 
 
     useEffect(()=>{
