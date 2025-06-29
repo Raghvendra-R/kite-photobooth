@@ -17,16 +17,20 @@ export const AppContextProvider=(props)=>{
 
      // Function t calculate average rating of course
 
-     const calculateRating=(course)=>{
-        if(course.courseRating.length===0){
+     const calculateRating = (course) => {
+        if (!course?.courseRatings || course.courseRatings.length === 0) {
             return 0;
         }
-        let totalRating=0;
-        course.courseRatings.forEAch(rating=>{
-            totalRating += rating.rating
-        })
-        return totalRating/course.courseRatings.length
-     }
+    
+        let totalRating = 0;
+    
+        course.courseRatings.forEach(rating => {
+            totalRating += rating.rating;
+        });
+    
+        return totalRating / course.courseRatings.length;
+    };
+    
 
 
     useEffect(()=>{
