@@ -1,16 +1,11 @@
 import React from 'react'
+import Hero from '../../components/student/Hero'
 
 const Home = () => {
   return (
-    <div>
-        <h1></h1>
-        <div className="text-3xl font-bold underline text-red-500 bg-red">
-          Hello Tailwind
-        </div>
-        <div className="bg-green-500 text-white p-4 font-bold text-xl font-outfit">
-          Tailwind is working!
-        </div>
-        </div>
+    <div className='flex flex-col items-center space-y-7 text-center bg-gradient-to-b from-cyan-100/70'>
+    <Hero/>   
+    </div>
   )
 }
 
