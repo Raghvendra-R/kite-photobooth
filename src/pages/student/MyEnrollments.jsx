@@ -22,7 +22,7 @@ const MyEnrollments = () => {
                 </thead>
 
                 <tbody className='text-gray-700'>
-                    {enrolledCourses.map((course, index) => (
+                    {enrolledCourses && enrolledCourses.length > 0 && enrolledCourses.map((course, index) => (
                         <tr key={index} className='border-b border-gray-300/20'>
                             <td className='px-4 py-4 flex items-center gap-4'>
                                 <img src={course.courseThumbnail} alt={course.courseTitle} className='w-20 h-14 object-cover rounded' />
