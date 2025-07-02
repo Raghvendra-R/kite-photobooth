@@ -27,7 +27,7 @@ const App = () => {
         <Route path='/course/:id' element={<CourseDeatile />} />
         <Route path='/course-list/' element={<CourseList />} />
         <Route path='/course-list/:input' element={<CourseList />} />
-        <Route path='/my_enrollments' element={<MyEnrollments />} />
+        <Route path="/my-enrollments" element={<MyEnrollments />} />
         <Route path='/player/:courseId' element={<Player />} />
         <Route path='/loading/:path' element={<Loading />} />
 
