@@ -27,3 +27,9 @@ export default defineConfig([
     },
   },
 ])
+esbuild.build({
+  entryPoints: ["src/index.js"],
+  bundle: true,
+  outfile: "dist/out.js",
+  external: ["@tensorflow/tfjs-core", "@tensorflow/tfjs-backend-cpu"],
+});

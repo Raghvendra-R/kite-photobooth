@@ -1,22 +1,34 @@
-import React from 'react'
-import Header from './Component/Header'
-import About from './Component/About'
-import Project from './Component/Project'
-import Testimonial from './Component/Testimonial'
-import Contact from './Component/Contact'
-import Footer from './Component/Footer'
+import { useState } from "react";
+import LoginCard from "./Components/LoginCard";
+import KiteSelectionPage from "./Components/KiteSelectionPage";
+import FlyingKites from "./Components/KitesFly";
 
-const App = () => {
+export default function App() {
+  const [currentPage, setCurrentPage] = useState("login");
+  const [userData, setUserData] = useState(null);
+  const [selectedData, setSelectedData] = useState(null);
+
+  const handleLoginSuccess = (data) => {
+    setUserData(data);
+    setCurrentPage("selectKite");
+  };
+
+  const handlePhotoCapture = (data) => {
+    setSelectedData(data);
+    setCurrentPage("flying");
+  };
+
   return (
-    <div className='w-full overflow-hidden' id='nevbar'>
-      <Header/>
-      <About/>
-      <Project/>
-      <Testimonial/>
-      <Contact/>
-      <Footer/>
-    </div>
-  )
+    <>
+      {currentPage === "login" && <LoginCard onLoginSuccess={handleLoginSuccess} />}
+      {currentPage === "selectKite" && (
+        <KiteSelectionPage
+          userData={userData}
+          onBack={() => setCurrentPage("login")}
+          onPhotoCapture={handlePhotoCapture}
+        />
+      )}
+      {currentPage === "flying" && <FlyingKites selectedData={selectedData} />}
+    </>
+  );
 }
-
-export default App
