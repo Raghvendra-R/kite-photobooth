@@ -11,6 +11,7 @@ export default function App() {
   const handleLoginSuccess = (data) => {
     setUserData(data);
     setCurrentPage("selectKite");
+    localStorage.setItem("user", JSON.stringify(data)); // optional: save user
   };
 
   const handlePhotoCapture = (data) => {
@@ -20,7 +21,10 @@ export default function App() {
 
   return (
     <>
-      {currentPage === "login" && <LoginCard onLoginSuccess={handleLoginSuccess} />}
+      {currentPage === "login" && (
+        <LoginCard onLoginSuccess={handleLoginSuccess} />
+      )}
+
       {currentPage === "selectKite" && (
         <KiteSelectionPage
           userData={userData}
@@ -28,7 +32,10 @@ export default function App() {
           onPhotoCapture={handlePhotoCapture}
         />
       )}
-      {currentPage === "flying" && <FlyingKites selectedData={selectedData} />}
+
+      {currentPage === "flying" && (
+        <FlyingKites selectedData={selectedData} />
+      )}
     </>
   );
 }
